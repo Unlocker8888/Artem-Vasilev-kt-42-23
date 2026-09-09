@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Mvc;
+using NLog;
+
 namespace ArtemVasilevKt_42_23
 {
     public class WeatherForecast
