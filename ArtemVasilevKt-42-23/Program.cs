@@ -1,5 +1,8 @@
+using ArtemVasilevKt_42_23.Data;
+using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
+using ArtemVasilevKt_42_23.Data;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 try
@@ -12,6 +15,9 @@ try
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();
