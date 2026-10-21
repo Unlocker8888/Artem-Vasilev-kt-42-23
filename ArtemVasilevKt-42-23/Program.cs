@@ -1,8 +1,8 @@
 using ArtemVasilevKt_42_23.Data;
+using ArtemVasilevKt_42_23.Extensions;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
-using ArtemVasilevKt_42_23.Data;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 try
@@ -18,6 +18,8 @@ try
 
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
 
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();
