@@ -7,3 +7,8 @@ public class StudentFilter
     public string? LastName { get; set; }
     public bool? IsDeleted { get; set; }
 }
+
+public class GroupsWithFailsFilter
+{
+    public string DisciplineName { get; set; } = string.Empty;
+}

@@ -12,6 +12,7 @@ namespace ArtemVasilevKt_42_23.Configurations
             builder.HasKey(d => d.DisciplineId);
 
             builder.Property(d => d.Name).IsRequired().HasColumnType(ColumnType.NVarchar200);
+            builder.Property(d => d.Direction).IsRequired().HasColumnType(ColumnType.Int);
             builder.Property(d => d.IsDeleted).IsRequired().HasColumnType(ColumnType.Bit).HasDefaultValue(false);
         }
     }
